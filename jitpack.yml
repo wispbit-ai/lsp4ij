@@ -6,5 +6,5 @@ jdk:
 
 # Custom build command to skip tests and verification for faster builds
 install:
-  - ./gradlew clean build publishToMavenLocal -x test -x verifyPlugin
+  - ./gradlew clean build -x test -x verifyPlugin
 
