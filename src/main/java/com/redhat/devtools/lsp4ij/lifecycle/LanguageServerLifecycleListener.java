@@ -25,7 +25,6 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Angelo ZERR
  */
-@ApiStatus.Internal
 public interface LanguageServerLifecycleListener extends Disposable {
 
     /**
