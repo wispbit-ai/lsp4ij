@@ -4,8 +4,8 @@
 jdk:
   - openjdk17
 
-# Custom build command to skip tests and verification for faster builds
+# Build and publish to Maven Local for JitPack
 install:
-  - ./gradlew clean jar -x test -x instrumentCode -x koverGenerateArtifact -x koverCachedVerify
+  - ./gradlew clean build publishToMavenLocal --init-script jitpack-publish.gradle -x test -x instrumentCode -x koverGenerateArtifact -x koverCachedVerify -x koverVerify -x verifyPlugin
 
 

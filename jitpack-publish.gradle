@@ -1,0 +1,18 @@
+// JitPack Maven publishing configuration
+allprojects {
+    apply plugin: 'maven-publish'
+
+    afterEvaluate {
+        publishing {
+            publications {
+                maven(MavenPublication) {
+                    from components.java
+                    groupId = project.group
+                    artifactId = project.name
+                    version = project.version
+                }
+            }
+        }
+    }
+}
+
