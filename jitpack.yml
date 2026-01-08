@@ -5,7 +5,7 @@ jdk:
   - openjdk17
 
 # Build and publish to Maven Local for JitPack
+# Skip all IntelliJ plugin-specific tasks
 install:
-  - ./gradlew clean build publishToMavenLocal --init-script jitpack-publish.gradle -x test -x instrumentCode -x koverGenerateArtifact -x koverCachedVerify -x koverVerify -x verifyPlugin
-
+  - ./gradlew clean publishToMavenLocal --init-script jitpack-publish.gradle -x test -x instrumentCode -x koverGenerateArtifact -x koverCachedVerify -x koverVerify -x verifyPlugin -x buildSearchableOptions -x prepareJarSearchableOptions -x jarSearchableOptions
 
