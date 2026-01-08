@@ -1,0 +1,10 @@
+# JitPack configuration for LSP4IJ
+# Specifies Java 17 as required by the project
+
+jdk:
+  - openjdk17
+
+# Custom build command to skip tests and verification for faster builds
+install:
+  - ./gradlew clean build publishToMavenLocal -x test -x verifyPlugin
+
