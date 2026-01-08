@@ -3,13 +3,23 @@ allprojects {
     apply plugin: 'maven-publish'
 
     afterEvaluate {
+        // Disable Gradle metadata to avoid variant issues
+        tasks.withType(GenerateModuleMetadata) {
+            enabled = false
+        }
+        
         publishing {
             publications {
                 maven(MavenPublication) {
-                    from components.java
                     groupId = project.group
                     artifactId = project.name
                     version = project.version
+                    
+                    // Publish only the instrumented JAR as the main artifact
+                    artifact(tasks.instrumentedJar) {
+                        classifier = ''
+                        extension = 'jar'
+                    }
                 }
             }
         }
